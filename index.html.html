@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Estrategia Creativa | Consultoría Integral de Comunicación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* VARIABLES DE DISEÑO */
+        :root {
+            --primary-color: #1a2a6c;
+            --secondary-color: #fdbb2d;
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+            --bg-gray: #f4f4f4;
+            --accent-blue: #2a48ad;
+        }
+
+        /* ESTILOS GENERALES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text-dark); scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .container { width: 85%; max-width: 1200px; margin: 0 auto; }
+        .btn { display: inline-block; background: var(--secondary-color); color: var(--primary-color); padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s ease; border: none; cursor: pointer; }
+        .btn:hover { background: var(--primary-color); color: white; }
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 20px; font-size: 2.5rem; color: var(--primary-color); }
+        .section-subtitle { text-align: center; max-width: 900px; margin: 0 auto 50px auto; color: #666; font-size: 1.1rem; line-height: 1.8; }
+
+        /* ENCABEZADO */
+        header { background: var(--primary-color); color: white; padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--secondary-color); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--secondary-color); }
+
+        /* INICIO (HERO) */
+        #inicio { height: 100vh; background: linear-gradient(rgba(26, 42, 108, 0.85), rgba(26, 42, 108, 0.85)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        #inicio h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        #inicio p { font-size: 1.3rem; margin-bottom: 30px; max-width: 900px; margin-left: auto; margin-right: auto; font-weight: 300; }
+
+        /* QUIÉNES SOMOS */
+        .intro-text { margin-bottom: 60px; line-height: 1.9; text-align: justify; font-size: 1.05rem; }
+        .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .about-item { padding: 40px 25px; background: white; border-top: 5px solid var(--secondary-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .about-item h3 { margin-bottom: 15px; color: var(--primary-color); }
+
+        /* SERVICIOS */
+        #servicios { background: var(--bg-gray); }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .service-card { background: white; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 8px; }
+        .service-card h3 { color: var(--accent-blue); margin-bottom: 15px; }
+        .service-card p { margin-bottom: 20px; font-size: 0.95rem; color: #555; line-height: 1.7; }
+        .service-example { background: #fef9e7; padding: 15px; border-left: 4px solid var(--secondary-color); font-size: 0.9rem; }
+        .service-img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; border-radius: 5px; }
+
+        /* PÚBLICO OBJETIVO (NUEVA SECCIÓN) */
+        #publico { background: var(--bg-light); }
+        .target-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+        .target-item { display: flex; flex-direction: column; background: #fff; border: 1px solid #eee; overflow: hidden; border-radius: 10px; transition: transform 0.3s; }
+        .target-item:hover { transform: translateY(-5px); }
+        .target-img { width: 100%; height: 250px; object-fit: cover; }
+        .target-content { padding: 30px; }
+        .target-content h3 { color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 5px; }
+        .target-content p { font-size: 0.95rem; color: #444; text-align: justify; }
+
+        /* BLOG (NUEVA SECCIÓN) */
+        #blog { background: var(--bg-gray); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .blog-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .blog-img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-info { padding: 25px; }
+        .blog-info h4 { margin-bottom: 15px; color: var(--primary-color); font-size: 1.1rem; line-height: 1.4; }
+        .blog-info p { font-size: 0.9rem; color: #666; margin-bottom: 20px; line-height: 1.6; }
+        .read-more { color: var(--accent-blue); text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+
+        /* EQUIPO */
+        .team-intro { text-align: center; margin-bottom: 60px; max-width: 850px; margin-left: auto; margin-right: auto; }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 60px; }
+        .team-member { text-align: center; }
+        .team-member img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid #eee; }
+        .culture-box { background: var(--primary-color); color: white; padding: 50px; border-radius: 15px; text-align: center; }
+        .culture-box h3 { color: var(--secondary-color); margin-bottom: 20px; }
+
+        /* TESTIMONIOS Y CONTACTO */
+        #testimonios { background: var(--accent-blue); color: white; text-align: center; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+
+        /* BOT ASISTENTE (NUEVA FUNCIONALIDAD) */
+        .nexus-bot { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
+        .bot-button { background: var(--secondary-color); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: 0.3s; }
+        .bot-button:hover { transform: scale(1.1); }
+        .bot-window { position: absolute; bottom: 80px; right: 0; width: 300px; background: white; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); overflow: hidden; display: none; border: 1px solid #eee; }
+        .bot-header { background: var(--primary-color); color: white; padding: 15px; font-weight: bold; font-size: 0.9rem; display: flex; justify-content: space-between; }
+        .bot-body { padding: 20px; font-size: 0.85rem; }
+        .bot-msg { background: #f0f0f0; padding: 10px; border-radius: 10px; margin-bottom: 10px; color: #333; }
+        .bot-options div { padding: 8px 12px; border: 1px solid var(--accent-blue); color: var(--accent-blue); margin-top: 5px; border-radius: 20px; text-align: center; cursor: pointer; font-size: 0.8rem; transition: 0.2s; }
+        .bot-options div:hover { background: var(--accent-blue); color: white; }
+
+        /* FOOTER */
+        footer { background: #111; color: white; padding: 60px 0 20px 0; text-align: center; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { color: var(--secondary-color); margin: 0 15px; text-decoration: none; font-size: 1.1rem; }
+
+        @media (max-width: 992px) {
+            .about-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .services-grid, .team-grid, .contact-container, .target-grid, .blog-grid { grid-template-columns: 1fr; }
+            #inicio h1 { font-size: 2.5rem; }
+            .nexus-bot { bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">NEXUS ESTRATEGIA</div>
+                <ul>
+                    <li><a href="#inicio">INICIO</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#publico">PÚBLICO</a></li>
+                    <li><a href="#equipo">EQUIPO</a></li>
+                    <li><a href="#blog">ARTÍCULOS</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <div class="container">
+            <h1>Liderazgo en Comunicación que Transforma</h1>
+            <p>En un ecosistema digital y social saturado de ruido, Nexus Estrategia Creativa actúa como el catalizador que permite a las organizaciones no solo ser escuchadas, sino comprendidas y valoradas. Construimos puentes de confianza basados en la ética, el análisis de datos y la narrativa de alto impacto.</p>
+            <a href="#nosotros" class="btn">Conoce nuestra Filosofía</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Nuestra Identidad</h2>
+            <div class="intro-text">
+                <p><strong>Nexus Estrategia Creativa</strong> nació de la convicción profunda de que la comunicación corporativa contemporánea ha dejado de ser una herramienta de soporte para convertirse en el eje central de la sostenibilidad institucional. En el entorno actual, el <strong>Marketing y la Comunicación Estratégica</strong> operan como el sistema nervioso de cualquier organización exitosa; permiten alinear con precisión quirúrgica los objetivos de negocio con las expectativas cambiantes del público, garantizando no solo una visibilidad efímera, sino una relevancia y autoridad a largo plazo.</p>
+                <p>Nuestra consultoría se especializa en decodificar la complejidad de los mercados globales para ofrecer soluciones transmedia que integran la rigurosidad del análisis cuantitativo con la sensibilidad de la narrativa creativa. No creemos en fórmulas mágicas, sino en diagnósticos exhaustivos que nos permiten anticipar tendencias y mitigar riesgos reputacionales antes de que estos se manifiesten.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>Misión</h3>
+                    <p>Diseñar y ejecutar arquitecturas de comunicación multidimensionales que posicionen a nuestros clientes como referentes incuestionables en sus industrias. Nuestra metodología integra la ética comunicativa con la innovación tecnológica para generar un impacto social y corporativo que sea medible, escalable y positivo.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Visión</h3>
+                    <p>Consolidarnos para el año 2030 como la agencia consultora líder en gestión de reputación, marketing de propósito y análisis prospectivo en el mercado hispanohablante. Aspiramos a redefinir el estándar de la industria, siendo reconocidos por transformar desafíos estructurales en ventajas competitivas.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Valores</h3>
+                    <p>Nos rige la <strong>Transparencia Radical</strong>, eliminando las opacidades en los procesos de gestión. Aplicamos una <strong>Excelencia Creativa</strong> que desafía los paradigmas convencionales y mantenemos una <strong>Responsabilidad Estratégica</strong> total, donde cada byte de información tiene un propósito definido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios Especializados</h2>
+            <p class="section-subtitle">Nuestra metodología se aleja de las soluciones genéricas ("one-size-fits-all"). Desarrollamos tácticas de precisión personalizadas, fundamentadas en un diagnóstico profundo del ADN institucional, el contexto geopolítico y las dinámicas del mercado objetivo.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="PR" class="service-img">
+                    <h3>Gestión de Relaciones Públicas (PR)</h3>
+                    <p>Construimos y blindamos su activo más valioso: la reputación. Implementamos una gestión de medios proactiva (Earned Media) y el desarrollo de alianzas estratégicas con stakeholders clave y líderes de opinión que validan su mensaje institucional.</p>
+                    <div class="service-example">
+                        <strong>Proyecto Destacado:</strong> Campaña <em>"Voces de Confianza"</em> para la banca nacional, logrando un incremento del 40% en el sentimiento positivo de marca tras una crisis estructural del sector.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Marketing" class="service-img">
+                    <h3>Marketing Estratégico & Digital</h3>
+                    <p>Más allá de la publicidad convencional, aplicamos Inbound Marketing de precisión y análisis de sentimientos para crear embudos de conversión que no solo captan leads, sino que fomentan comunidades leales y promotores orgánicos de su marca.</p>
+                    <div class="service-example">
+                        <strong>Campaña:</strong> Lanzamiento de <em>"EcoTrend 2025"</em>, una estrategia 360° que utilizó IA predictiva para personalizar la experiencia de usuario, duplicando el ROI del cliente en solo un trimestre.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Crisis" class="service-img">
+                    <h3>Comunicación de Crisis & Riesgos</h3>
+                    <p>El silencio no es una opción en tiempos de crisis. Desarrollamos manuales de contención, protocolos de respuesta inmediata y realizamos simulacros de gabinete para asegurar que su equipo esté listo para proteger la marca ante cualquier contingencia mediática.</p>
+                    <div class="service-example">
+                        <strong>Caso de Éxito:</strong> Gestión de contención para <em>"Industrias Global"</em> durante una reestructuración masiva, neutralizando narrativas negativas y manteniendo la confianza de los inversionistas.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80" alt="Eventos" class="service-img">
+                    <h3>Eventos Institucionales de Alto Impacto</h3>
+                    <p>Diseñamos experiencias inmersivas que materializan los valores de su empresa. Desde cumbres de liderazgo hasta lanzamientos tecnológicos, cada detalle está orquestado para generar una narrativa coherente y una cobertura mediática de alto alcance.</p>
+                    <div class="service-example">
+                        <strong>Evento Reciente:</strong> <em>"Foro Futuro Sostenible"</em>, conectando a 50 CEOs con corresponsales internacionales en una jornada de alto nivel de networking y visibilidad.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publico">
+        <div class="container">
+            <h2 class="section-title">Segmentación Estratégica</h2>
+            <p class="section-subtitle">En Nexus, comprendemos que cada actor social tiene necesidades de comunicación diametralmente opuestas. No hablamos el mismo lenguaje con un emprendedor que con un ministro de estado; decodificamos cada entorno para adaptar el tono, el canal y el mensaje.</p>
+            
+            <div class="target-grid">
+                <div class="target-item">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Emprendedores" class="target-img">
+                    <div class="target-content">
+                        <h3>Emprendedores y Startups</h3>
+                        <p>Para quienes están en fase de aceleración, nos enfocamos en el <strong>Branding Fundacional</strong>. El desafío aquí es la diferenciación en mercados saturados. Ayudamos a definir su propuesta única de valor (PUV) y a construir una narrativa que atraiga tanto a clientes como a fondos de inversión, utilizando estrategias de <em>growth hacking</em> comunicacional.</p>
+                    </div>
+                </div>
+
+                <div class="target-item">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Empresas" class="target-img">
+                    <div class="target-content">
+                        <h3>Grandes Empresas y Corporativos</h3>
+                        <p>Nuestro enfoque para el sector corporativo se centra en la <strong>Consolidación Reputacional</strong> y la comunicación interna. Trabajamos en alinear la cultura organizacional con la imagen externa, gestionando la relación con accionistas y optimizando su posicionamiento en el mercado global mediante informes de sostenibilidad y relaciones públicas de alto nivel.</p>
+                    </div>
+                </div>
+
+                <div class="target-item">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Instituciones" class="target-img">
+                    <div class="target-content">
+                        <h3>Instituciones Públicas</h3>
+                        <p>En el sector gubernamental, la prioridad es la <strong>Transparencia y la Confianza Ciudadana</strong>. Adaptamos nuestras estrategias para humanizar la gestión pública, facilitando la rendición de cuentas a través de plataformas digitales y gestionando la comunicación política de manera ética para fortalecer el vínculo entre el estado y la sociedad.</p>
+                    </div>
+                </div>
+
+                <div class="target-item">
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="ONGs" class="target-img">
+                    <div class="target-content">
+                        <h3>ONGs y Sector Social</h3>
+                        <p>Para las organizaciones sin fines de lucro, implementamos <strong>Marketing de Propósito</strong>. Nos especializamos en la movilización de conciencias y la recaudación de fondos (fundraising) a través de un <em>storytelling</em> potente y emocional que visibilice el impacto real de sus proyectos en la comunidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipo">
+        <div class="container">
+            <h2 class="section-title">Talento con Propósito</h2>
+            <div class="team-intro">
+                <p>Nexus es mucho más que una consultoría; es un ecosistema multidisciplinario donde convergen mentes inquietas. Nuestro equipo integra periodistas de investigación, analistas de datos, psicólogos sociales, expertos en semiótica y creativos visuales para ofrecer una visión 360° genuina de la comunicación contemporánea.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="CEO">
+                    <h4>Dra. Valeria Mendoza</h4>
+                    <p><strong>Directora de Estrategia</strong><br>Doctora en Psicología Social con 15 años liderando estrategias de comunicación para firmas del Fortune 500.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="PR">
+                    <h4>Msc. Ricardo Espinoza</h4>
+                    <p><strong>Head of PR & Crisis</strong><br>Estratega experto en gestión de riesgos y relaciones gubernamentales con amplia trayectoria en medios internacionales.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Creative">
+                    <h4>Ana Lucía Torres</h4>
+                    <p><strong>Directora de Innovación Creativa</strong><br>Especialista en narrativa visual enfocada en la construcción de identidades de marca con alto valor emocional.</p>
+                </div>
+            </div>
+
+            <div class="culture-box">
+                <h3>¿Te apasiona la comunicación estratégica?</h3>
+                <p>En Nexus buscamos perfiles híbridos que combinen el <strong>pensamiento crítico</strong> con la <strong>agilidad digital</strong>. No buscamos empleados, buscamos consultores que entiendan que cada interacción cuenta. Si dominas el análisis métrico, posees una redacción impecable y tienes la resiliencia necesaria para gestionar entornos complejos, queremos conocer tu visión.</p>
+                <br>
+                <p><em>Requerimos: Curiosidad intelectual, bilingüismo, y compromiso inquebrantable con la ética profesional.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2 class="section-title">Nexus Insights</h2>
+            <p class="section-subtitle">Exploramos la vanguardia de las ciencias de la comunicación y el marketing para compartir conocimiento que aporte valor a la comunidad profesional.</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Blog 1" class="blog-img">
+                    <div class="blog-info">
+                        <h4>El Rol de la Comunicación en la Sostenibilidad</h4>
+                        <p>Descubra por qué la comunicación estratégica es ahora el activo más crítico para las organizaciones que buscan perdurar en un mercado que exige transparencia y responsabilidad ética.</p>
+                        <a href="#" class="read-more">LEER ARTÍCULO COMPLETO</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=600&q=80" alt="Blog 2" class="blog-img">
+                    <div class="blog-info">
+                        <h4>PR en la Era de la Inteligencia Artificial</h4>
+                        <p>¿Cómo las herramientas de IA están transformando la gestión de prensa y el monitoreo de reputación? Analizamos el equilibrio entre automatización y el toque humano esencial.</p>
+                        <a href="#" class="read-more">LEER ARTÍCULO COMPLETO</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2959213?auto=format&fit=crop&w=600&q=80" alt="Blog 3" class="blog-img">
+                    <div class="blog-info">
+                        <h4>Marketing con Propósito: Más allá del Greenwashing</h4>
+                        <p>Un análisis académico sobre cómo las marcas pueden construir una identidad socialmente responsable de forma auténtica, evitando los errores comunes de la comunicación cosmética.</p>
+                        <a href="#" class="read-more">LEER ARTÍCULO COMPLETO</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios">
+        <div class="container">
+            <div style="max-width: 850px; margin: 0 auto;">
+                <p style="font-size: 1.6rem; font-style: italic; font-weight: 300; line-height: 1.6;">"La capacidad analítica de Nexus para entender no solo lo que queríamos decir, sino lo que nuestro público realmente necesitaba escuchar, fue el factor decisivo en nuestro éxito regional. Transformaron una crisis potencial en nuestra mayor oportunidad de branding."</p>
+                <br>
+                <strong style="font-size: 1.1rem; color: var(--secondary-color);">- Elena Rivas, Directora de Comunicaciones en AeroLatam</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Inicie su Transformación</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Consultoría de Alta Dirección</h3>
+                    <p>En Nexus, cada alianza comienza con una escucha activa. Analizaremos su situación actual, detectaremos puntos de dolor y trazaremos una hoja de ruta estratégica inicial sin compromiso alguno.</p>
+                    <br>
+                    <p><strong>Sede Central:</strong> Distrito Financiero, Torre Nexus, Piso 12.</p>
+                    <p><strong>Atención Directa:</strong> hola@nexusestrategia.com</p>
+                    <p><strong>Línea Corporativa:</strong> +51 987 654 321</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Nombre de la Institución / Empresa" required>
+                        <input type="email" placeholder="Correo Corporativo" required>
+                        <textarea rows="4" placeholder="Describa brevemente su desafío de comunicación (crisis, posicionamiento, marketing, etc.)" required></textarea>
+                        <button type="submit" class="btn">Solicitar Diagnóstico Estratégico</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="nexus-bot" id="botContainer">
+        <div class="bot-window" id="botWindow">
+            <div class="bot-header">
+                <span>NEXUS ASSISTANT</span>
+                <span style="cursor:pointer" onclick="toggleBot()">×</span>
+            </div>
+            <div class="bot-body">
+                <div class="bot-msg">¡Hola! Soy el asistente virtual de Nexus. ¿En qué puedo ayudarte hoy?</div>
+                <div class="bot-options">
+                    <div onclick="alert('Un consultor se pondrá en contacto pronto.')">Agendar Diagnóstico</div>
+                    <div onclick="alert('Nuestros servicios incluyen PR, Marketing y Crisis.')">Saber más de Servicios</div>
+                    <div onclick="alert('Por favor, escríbenos a hola@nexusestrategia.com')">Hablar con un Humano</div>
+                </div>
+            </div>
+        </div>
+        <div class="bot-button" onclick="toggleBot()">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1a2a6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#">LinkedIn</a> | <a href="#">Instagram</a> | <a href="#">X (Twitter)</a> | <a href="#">Medium</a> | <a href="#">YouTube</a>
+            </div>
+            <p>&copy; 2025 Nexus Estrategia Creativa. Todos los derechos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Expertos en Gestión de Reputación, Comunicación de Crisis e Impacto de Marca en Mercados Globales.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleBot() {
+            const window = document.getElementById('botWindow');
+            window.style.display = (window.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>
